@@ -1,0 +1,83 @@
+"use client";
+import React, { useEffect, useState } from 'react';
+import client from '../../lib/apollo-client';
+import { HOMEPAGE_QUERY, COLOUR_CATEGORY_QUERY } from '../../lib/queries';
+import Image from "next/image";
+
+function Colors() {
+    const [homepageData, setHomepageData] = useState(null);
+    const [colorCategories, setColorCategories] = useState([]);
+    const [error, setError] = useState(null);
+
+    const fetchData = async () => {
+        try {
+            // Fetch homepage data
+            const homepageResponse = await client.query({
+                query: HOMEPAGE_QUERY,
+            });
+            setHomepageData(homepageResponse.data.pages.nodes[0].homepage);
+
+            // Fetch color categories data
+            const colorCategoryResponse = await client.query({
+                query: COLOUR_CATEGORY_QUERY,
+            });
+            const colorsFromAPI = colorCategoryResponse.data.allColourCategory.nodes[0]?.colours?.nodes || [];
+
+            // Add additional colors for testing
+            const additionalColors = [
+                { title: 'Colour Name 6', colourInfo: { colourRgb: '123,234,45' } },
+                { title: 'Colour Name 7', colourInfo: { colourRgb: '67,89,123' } },
+                { title: 'Colour Name 8', colourInfo: { colourRgb: '255,99,71' } }
+            ];
+
+            setColorCategories([...colorsFromAPI, ...additionalColors]);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setError(error);
+            
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    if (error) return <p>Error: {error.message}</p>;
+
+    return (
+        <div className='md:px-32 px-5 my-14 overflow-scroll md:overflow-clip'>
+            <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800'>
+                {homepageData?.homeColoursSubtitle}
+            </h1>
+            <div className='font-bold md:text-3xl text-2xl drop-shadow flex items-center md:space-x-3 mb-10'>
+                <p>{homepageData?.homeColoursTitle}</p>
+                <Image src='/yellowline.svg' width={520} height={500} alt="Banner Image" className="h-5 w-60 md:block hidden" />
+            </div>
+
+            <div className="flex justify-between gap-5 w-full">
+                {colorCategories.length > 0 ? (
+                    colorCategories.map((color, index) => (
+                        <div key={index} className="relative hover:border hover:shadow-md rounded-md group pb-1">
+                             <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <p className="font-semibold bg-opacity-75 p-2 rounded">
+                                    Astral Paints
+                                </p>
+                            </div>
+                            <div
+                                className="md:w-36 md:h-32  w-48 h-40 p-2 border"
+                                style={{ backgroundColor: `rgb(${color.colourInfo.colourRgb})` }} // Convert comma-separated RGB to CSS rgb() value
+                            ><p className='p-2 border w-full h-full'></p></div>
+                           
+                            <p className="mt-2 text-center font-semibold">{color.title}</p>
+                            <p className="text-center text-sm mt-2">{color.colourInfo.colourRgb}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No colors available.</p>
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default Colors;
