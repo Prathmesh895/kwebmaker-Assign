@@ -11,17 +11,16 @@ import Link from "next/link";
 function Page() {
     const [homepageData, setHomepageData] = useState(null);
     const [error, setError] = useState(null);
-
     const fetchData = async () => {
         try {
             const { data } = await client.query({
                 query: HOMEPAGE_QUERY,
             });
             setHomepageData(data.pages.nodes[0]);
-            
+
         } catch (error) {
             setError(error);
-            
+
         }
     };
 
@@ -31,7 +30,6 @@ function Page() {
 
     if (error) return <p>Error: {error.message}</p>;
 
- 
     const banners = homepageData?.homepage?.banners || [];
 
     return (
@@ -53,10 +51,10 @@ function Page() {
                                 width={1520}
                                 height={500}
                                 alt={`Banner Image ${index}`}
-                                className="w-[100%] h-[800px] "
+                                className="md:w-[100%] md:h-[800px] h-[700px] md:object-fill object-none"
                             />
-                            <div className="top-[270px] z-10 absolute float-start flex flex-col items-start text-white p-2 md:mx-20 space-y-3">
-                                <p className="text-5xl  font-semibold drop-shadow-lg">{banner.bannersTitle}</p>
+                            <div className="md:top-[270px] bottom-32 z-10 absolute md:float-start flex flex-col items-start text-start text-white p-2 md:mx-20 space-y-3">
+                                <p className="md:text-5xl text-4xl  font-semibold drop-shadow-xl shadow-blue-700">{banner.bannersTitle}</p>
                                 <p>{banner.bannerDescription}</p>
                                 <button className="bg-white font-semibold text-sm text-black rounded-full px-4 py-1.5">
                                     <Link href={banner.bannerButton.url} target={banner.bannerButton.target}>{banner.bannerButton.title}</Link>
@@ -73,10 +71,10 @@ function Page() {
                     width={1520}
                     height={500}
                     alt={`Banner Image`}
-                    className="w-full top-[67%] -z-0 absolute"
+                    className="w-full md:top-[67%] bottom-12 -z-0 absolute"
                 />
             </div>
-            
+
         </div>
     );
 }

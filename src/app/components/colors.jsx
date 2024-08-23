@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import client from '../../lib/apollo-client';
 import { HOMEPAGE_QUERY, COLOUR_CATEGORY_QUERY } from '../../lib/queries';
 import Image from "next/image";
+import Loading from '../loading';
 
 function Colors() {
     const [homepageData, setHomepageData] = useState(null);
     const [colorCategories, setColorCategories] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const fetchData = async () => {
         try {
@@ -34,7 +36,8 @@ function Colors() {
         } catch (error) {
             console.error("Error fetching data:", error);
             setError(error);
-            
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -42,10 +45,12 @@ function Colors() {
         fetchData();
     }, []);
 
+    if (loading) return <Loading/>
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div className='md:px-32 px-5 my-14 overflow-scroll md:overflow-clip'>
+        <div className='md:px-32 px-5 my-14 '>
+            {/* Heading  */}
             <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800'>
                 {homepageData?.homeColoursSubtitle}
             </h1>
@@ -53,28 +58,25 @@ function Colors() {
                 <p>{homepageData?.homeColoursTitle}</p>
                 <Image src='/yellowline.svg' width={520} height={500} alt="Banner Image" className="h-5 w-60 md:block hidden" />
             </div>
-
-            <div className="flex justify-between gap-5 w-full">
-                {colorCategories.length > 0 ? (
-                    colorCategories.map((color, index) => (
-                        <div key={index} className="relative hover:border hover:shadow-md rounded-md group pb-1">
-                             <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <p className="font-semibold bg-opacity-75 p-2 rounded">
-                                    Astral Paints
-                                </p>
-                            </div>
-                            <div
-                                className="md:w-36 md:h-32  w-48 h-40 p-2 border"
-                                style={{ backgroundColor: `rgb(${color.colourInfo.colourRgb})` }} // Convert comma-separated RGB to CSS rgb() value
-                            ><p className='p-2 border w-full h-full'></p></div>
-                           
-                            <p className="mt-2 text-center font-semibold">{color.title}</p>
-                            <p className="text-center text-sm mt-2">{color.colourInfo.colourRgb}</p>
+            {/* fetched color details  */}
+            <div className="flex gap-5 w-full  overflow-scroll md:overflow-visible">
+                {colorCategories.map((color, index) => (
+                    <div key={index} className="relative hover:border hover:shadow-md rounded-md group pb-1">
+                        <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p className="font-semibold bg-opacity-75 p-2 rounded">
+                                Astral Paints
+                            </p>
                         </div>
-                    ))
-                ) : (
-                    <p>No colors available.</p>
-                )}
+                        <div
+                            className="md:w-36 md:h-32 w-48 h-40 p-2 border"
+                            style={{ backgroundColor: `rgb(${color.colourInfo.colourRgb})` }}
+                        >
+                            <p className='p-2 border w-full h-full'></p>
+                        </div>
+                        <p className="mt-2 text-center font-semibold">{color.title}</p>
+                        <p className="text-center text-sm mt-2">{color.colourInfo.colourRgb}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );

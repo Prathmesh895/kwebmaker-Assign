@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
-// Define the navigation items
+//navigation items
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Category', href: '#category' },
@@ -26,7 +26,10 @@ function Navbar() {
     <nav className='w-full fixed z-50 bg-[#0060af] lg:px-24 flex justify-between items-center'>
       {/* Logo */}
       <div>
-        <Image src='/logo.webp' width={150} height={100} alt='Logo' />
+      <Link href='/'> 
+      <Image src='/logo.webp' width={150} height={100} alt='Logo' />
+      </Link>
+       
       </div>
 
       {/* Desktop Menu */}
@@ -44,8 +47,8 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-[#0060af] text-white flex flex-col items-center transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className='w-full flex justify-end p-4'>
+      <div className={`fixed inset-0 bg-[#0060af] text-white flex flex-col items-start pl-10 transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className='w-full flex justify-end p-5'>
           <AiOutlineClose size={35} className='text-white cursor-pointer' onClick={toggleMenu} />
         </div>
         <ul className='space-y-4 mt-10'>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import client from '../../lib/apollo-client';
 import { HOMEPAGE_QUERY } from '../../lib/queries';
 import Image from "next/image";
+import Loading from '../loading';
 
 function Category() {
     const [homepageData, setHomepageData] = useState(null);
@@ -28,7 +29,7 @@ function Category() {
         fetchData();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading/>;
     if (error) return <p>Error: {error.message}</p>;
     return (
         <div className='md:px-32 px-5 my-10'>
