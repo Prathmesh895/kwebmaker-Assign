@@ -31,7 +31,7 @@ function About() {
 
     return (
         <div className='border-l-8 border-red-600 flex md:flex-row flex-col-reverse justify-between'>
-            <div className='basis-[60%] md:mt-12 mt-10 md:px-32 px-5'>
+            <div className='basis-[60%] md:mt-14 mt-10 md:px-32 px-5'>
                 <p className='font-semibold text-2xl drop-shadow hidden md:block'>{homepageData.homeAboutSubtitle}</p>
                 <h3 className='text-3xl font-bold pb-5 drop-shadow hidden md:block'>{homepageData.homeAboutTitle}</h3>
                 <p className='text-gray-600 '>
