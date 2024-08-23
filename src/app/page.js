@@ -53,7 +53,7 @@ function Page() {
                                 width={1520}
                                 height={500}
                                 alt={`Banner Image ${index}`}
-                                className="w-[100%] h-[700px] "
+                                className="w-[100%] h-[800px] "
                             />
                             <div className="top-[270px] z-10 absolute float-start flex flex-col items-start text-white p-2 md:mx-20 space-y-3">
                                 <p className="text-5xl  font-semibold drop-shadow-lg">{banner.bannersTitle}</p>
