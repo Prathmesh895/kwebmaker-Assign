@@ -34,11 +34,11 @@ function About() {
             <div className='basis-[60%] md:mt-12 mt-10 md:px-32 px-5'>
                 <p className='font-semibold text-2xl drop-shadow hidden md:block'>{homepageData.homeAboutSubtitle}</p>
                 <h3 className='text-3xl font-bold pb-5 drop-shadow hidden md:block'>{homepageData.homeAboutTitle}</h3>
-                <p className='text-gray-600 text-sm'>
+                <p className='text-gray-600 '>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint temporibus, assumenda magni minima, magnam nostrum dolorum facilis vel porro dolorem sed consectetur
                     laborum iure rem asperiores cum eaque blanditiis maiores perspiciatis incidunt possimus ratione cumque impedit perferendis! Perferendis quam, ex amet esse nostrum
                 </p><br />
-                <p className='text-gray-600 mb-5 text-sm'>
+                <p className='text-gray-600 mb-5'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cupiditate placeat
                     molestias eius debitis, illum temporibus dolore tempore, voluptatum ipsa aperiam
                     tempora alias ipsum fugiat quidem aut, error facilis adipisci assumenda. Corporis
