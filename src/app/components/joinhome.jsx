@@ -37,12 +37,12 @@ function Page() {
             {homepageData ? (
                 <div>
                     <Image src={homepageData.homeJoinBackgroundImage.node.sourceUrl} width={1600} height={500} alt={homepageData.homeJoinTitle}
-                        className='-z-10 w-full md:h-full h-44' />
-                    <div className='absolute md:top-1/4 top-2 space-y-2 md:px-[400px] text-center text-white'>
-                        <h1 className='md:text-base text-xs '>{homepageData.homeJoinSubtitle}</h1>
-                        <h1 className='md:text-3xl font-bold '>{homepageData.homeJoinTitle}</h1>
-                        <h1 className='md:text-base text-xs'>{homepageData.homeJoinDescription}</h1>
-                        <Link href='#' className=" text-blue-500 bg-white rounded-full mt-1 py-2 px-5 font-semibold md:text-sm ">
+                        className='-z-10 w-full md:h-full h-[340px]' />
+                    <div className='absolute md:top-1/4 top-10 space-y-2 md:px-[400px] px-10 text-center text-white' data-aos="fade-up">
+                        <h1 className=''>{homepageData.homeJoinSubtitle}</h1>
+                        <h1 className='text-3xl font-bold '>{homepageData.homeJoinTitle}</h1>
+                        <h1 className=''>{homepageData.homeJoinDescription}</h1>
+                        <Link href='#' className="text-black bg-white rounded-full mt-1 py-2 px-5 font-semibold md:text-sm ">
                               <button className='mt-5'>Read More</button> 
                             </Link>
                     </div>

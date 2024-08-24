@@ -41,17 +41,17 @@ function Blogs() {
 
     return (
         <div className='md:px-32 px-5 my-14'>
-            <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800'>
+            <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800' data-aos="fade-up">
                 {homepageData?.blogSubtitle}
             </h1>
-            <div className='font-bold md:text-3xl text-2xl drop-shadow flex items-center md:space-x-3 mb-10'>
+            <div className='font-bold md:text-3xl text-2xl drop-shadow flex items-center md:space-x-3 mb-10' data-aos="fade-up">
                 <p>{homepageData?.blogTitle}</p>
                 <Image src='/yellowline.svg' width={520} height={500} alt="Banner Image" className="h-5 w-60 md:block hidden" loading='lazy'/>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {blogData.map((blog, index) => (
-                    <div key={index} className={`relative overflow-hidden group ${index === 1 ? 'md:col-span-2 md:row-span-2' : ''}`}>
+                    <div data-aos="flip-right" key={index} className={`relative overflow-hidden group ${index === 1 ? 'md:col-span-2 md:row-span-2' : ''}`}>
                         {blog.featuredImage?.node?.sourceUrl && (
                             <Image
                                 src={blog.featuredImage.node.sourceUrl}

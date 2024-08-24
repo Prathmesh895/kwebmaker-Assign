@@ -4,6 +4,7 @@ import client from '../../lib/apollo-client';
 import { HOMEPAGE_QUERY } from '../../lib/queries';
 import Image from "next/image";
 import Loading from '../loading';
+import AOSWrapper from '@/app/components/aoswrapper';
 
 // Array containing image data with source, title, width, and height
 const imgsData = [
@@ -40,16 +41,16 @@ function Services() {
     if (loading) return <Loading/>;
     if (error) return <p>Error: {error.message}</p>;
     return (
-        <div className='md:px-32 px-5 my-14'>
+        <AOSWrapper>
+        <div className='md:px-32 px-5 my-14' data-aos="fade-up">
             <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800'>{homepageData.homeServicesSubtitle}</h1>
             {/* Title for the category section with an underline image */}
             <div className='font-bold md:text-3xl text-2xl drop-shadow flex items-center md:space-x-3 mb-10'>
                 <p>{homepageData.homeServicesTitle}</p>
                 <Image src='/yellowline.svg' width={520} height={500} alt={`Banner Image`} className="h-5 w-60 md:block hidden " />
             </div>
-
-
         </div>
+        </AOSWrapper>
     );
 }
 

@@ -33,7 +33,7 @@ function Navbar() {
       </div>
 
       {/* Desktop Menu */}
-      <ul className='md:flex items-center text-white space-x-5 text-sm hidden'>
+      <ul className='lg:flex items-center text-white space-x-5 text-sm hidden'>
         {navItems.map((item, index) => (
           <li key={index} className={`cursor-pointer ${item.className ? item.className : ''}`}>
             <Link href={item.href}>{item.label}</Link>
@@ -42,7 +42,7 @@ function Navbar() {
       </ul>
 
       {/* Mobile Menu Icon */}
-      <div className='md:hidden text-white cursor-pointer' onClick={toggleMenu}>
+      <div className='lg:hidden text-white cursor-pointer' onClick={toggleMenu}>
         {isMenuOpen ? <AiOutlineClose size={35} /> : <AiOutlineMenu size={35} />}
       </div>
 

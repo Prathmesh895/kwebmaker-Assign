@@ -7,6 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from "next/image";
 import Link from "next/link";
+import AOSWrapper from '@/app/components/aoswrapper';
 
 function Page() {
     const [homepageData, setHomepageData] = useState(null);
@@ -33,13 +34,15 @@ function Page() {
     const banners = homepageData?.homepage?.banners || [];
 
     return (
+        <AOSWrapper>
         <div className="w-full overflow-hidden">
             <div>
                 {/* carousel for home page imgs */}
                 <Carousel
                     autoPlay
                     infiniteLoop
-                    showArrows
+                    showArrows={false}
+                    showStatus={false}
                     showThumbs={false}
                     interval={2000}
                     className="relative"
@@ -51,9 +54,10 @@ function Page() {
                                 width={1520}
                                 height={500}
                                 alt={`Banner Image ${index}`}
-                                className="md:w-[100%] md:h-[800px] h-[700px] md:object-fill object-none"
+                                className="md:w-[100%] md:h-[800px] h-[700px] md:object-fill w-full object-cover"
                             />
-                            <div className="md:top-[270px] bottom-32 z-10 absolute md:float-start flex flex-col items-start text-start text-white p-2 md:mx-20 space-y-3">
+                            <div data-aos="fade-up"
+                            className="md:top-[270px] bottom-32 z-10 absolute md:float-start flex flex-col items-start text-start text-white p-2 md:mx-20 space-y-3">
                                 <p className="md:text-5xl text-4xl  font-semibold drop-shadow-xl shadow-blue-700">{banner.bannersTitle}</p>
                                 <p>{banner.bannerDescription}</p>
                                 <button className="bg-white font-semibold text-sm text-black rounded-full px-4 py-1.5">
@@ -76,6 +80,7 @@ function Page() {
             </div>
 
         </div>
+        </AOSWrapper>
     );
 }
 

@@ -51,24 +51,24 @@ function Colors() {
     return (
         <div className='md:px-32 px-5 my-14 '>
             {/* Heading  */}
-            <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800'>
+            <h1 className='font-semibold md:text-2xl text-xl drop-shadow text-gray-800' data-aos="fade-up">
                 {homepageData?.homeColoursSubtitle}
             </h1>
-            <div className='font-bold md:text-3xl text-2xl drop-shadow flex items-center md:space-x-3 mb-10'>
+            <div className='font-bold md:text-3xl text-2xl drop-shadow flex items-center md:space-x-3 mb-10' data-aos="fade-up">
                 <p>{homepageData?.homeColoursTitle}</p>
                 <Image src='/yellowline.svg' width={520} height={500} alt="Banner Image" className="h-5 w-60 md:block hidden" />
             </div>
             {/* fetched color details  */}
-            <div className="flex gap-5 w-full  overflow-scroll md:overflow-visible">
+            <div className="grid md:grid-cols-6 grid-cols-2 md:gap-5 gap-x-5 w-full" >
                 {colorCategories.map((color, index) => (
-                    <div key={index} className="relative hover:border hover:shadow-md rounded-md group pb-1">
+                    <div key={index} className="relative hover:border hover:shadow-md rounded-md group pb-1" data-aos="flip-right">
                         <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                             <p className="font-semibold bg-opacity-75 p-2 rounded">
                                 Astral Paints
                             </p>
                         </div>
                         <div
-                            className="md:w-36 md:h-32 w-48 h-40 p-2 border"
+                            className="md:h-36 h-32 p-2 border"
                             style={{ backgroundColor: `rgb(${color.colourInfo.colourRgb})` }}
                         >
                             <p className='p-2 border w-full h-full'></p>
