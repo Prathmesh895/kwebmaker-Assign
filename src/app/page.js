@@ -75,7 +75,7 @@ function Page() {
                     width={1520}
                     height={500}
                     alt={`Banner Image`}
-                    className="w-full  lg:top-[67%] md:top-[51%] bottom-6 -z-0 absolute"
+                    className="w-full  lg:top-[67%] md:top-[51%] top-[56%] bottom-6 -z-0 absolute"
                 />
             </div>
 
