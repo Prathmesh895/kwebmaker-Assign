@@ -42,7 +42,7 @@ function Category() {
                 <Image src='/redline.svg' width={520} height={500} alt={`Banner Image`} className="h-5 w-60 md:block hidden" />
             </div>
             {/* Grid layout for displaying image cards */}
-            <div className="grid md:grid-cols-4 gap-5">
+            <div className="grid lg:grid-cols-4 gap-5">
                 {homepageData.categories.map((category, index) => (
                     <ul className={`relative cursor-pointer group ${index == 0 && 'col-span-2 row-span-2 w-full h-full'}`} key={index}>
                         <Image src={category.image.node.sourceUrl} width={600} height={620} alt={category.title} className="w-full h-full" />

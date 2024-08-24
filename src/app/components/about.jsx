@@ -35,15 +35,15 @@ function About() {
 
     return (
         <AOSWrapper>
-            <div className=' flex md:flex-row flex-col-reverse justify-between'>
-                <div className='basis-[60%] md:mt-14 mt-10 md:px-32 px-5'>
-                    <p className='font-semibold text-2xl drop-shadow hidden md:block' data-aos="fade-up">{homepageData.homeAboutSubtitle}</p>
+            <div className=' flex lg:flex-row flex-col-reverse justify-between'>
+                <div className='basis-[60%] md:mt-16 mt-10 md:px-32 px-5' >
+                    <p className='font-semibold text-2xl drop-shadow hidden md:block' data-aos="fade-up" >{homepageData.homeAboutSubtitle}</p>
                     <h3 className='text-3xl font-bold pb-5 drop-shadow hidden md:block' data-aos="fade-up">{homepageData.homeAboutTitle}</h3>
-                    <p className='text-gray-600 ' data-aos="fade-up">
+                    <p className='text-gray-600 lg:text-base md:text-sm' data-aos="fade-up">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint temporibus, assumenda magni minima, magnam nostrum dolorum facilis vel porro dolorem sed consectetur
                         laborum iure rem asperiores cum eaque blanditiis maiores perspiciatis incidunt possimus ratione cumque impedit perferendis! Perferendis quam, ex amet esse nostrum
                     </p><br />
-                    <p className='text-gray-600 mb-5' data-aos="fade-up">
+                    <p className='text-gray-600 lg:text-base md:text-sm mb-5' data-aos="fade-up">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cupiditate placeat
                         molestias eius debitis, illum temporibus dolore tempore, voluptatum ipsa aperiam
                         tempora alias ipsum fugiat quidem aut, error facilis adipisci assumenda. Corporis
@@ -55,11 +55,11 @@ function About() {
                         {homepageData.homeAboutButton.title}
                     </Link>
                 </div>
-                <div className='basis-[40%]'>
+                <div className='basis-[40%] lg:px-0 md:px-32'>
                     <p className='font-semibold text-2xl drop-shadow mx-3 md:mt-0 mt-5  md:hidden block'>{homepageData.homeAboutSubtitle}</p>
                     <h3 className='text-3xl font-bold pb-5 drop-shadow mx-3 md:hidden block'>{homepageData.homeAboutTitle}</h3>
                     <Image src={homepageData.homeAboutVideoImage.node.sourceUrl}
-                        width={500} height={400} alt='video-img' className='md:w-[90%] pb-5 md:p-0 p-3' />
+                        width={500} height={400} alt='video-img' className='lg:w-[90%] md:w-[100%] pb-5 md:p-0 p-3' />
                 </div>
             </div>
         </AOSWrapper>

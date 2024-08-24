@@ -57,7 +57,7 @@ function Page() {
                                 className="md:w-[100%] md:h-[800px] h-[700px] md:object-fill w-full object-cover"
                             />
                             <div data-aos="fade-up"
-                            className="md:top-[270px] bottom-32 z-10 absolute md:float-start flex flex-col items-start text-start text-white p-2 md:mx-20 space-y-3">
+                            className="lg:top-[270px] md:top-[540px] bottom-32 z-10 absolute md:float-start flex flex-col items-start text-start text-white p-2 md:mx-20 space-y-3">
                                 <p className="md:text-5xl text-4xl  font-semibold drop-shadow-xl shadow-blue-700">{banner.bannersTitle}</p>
                                 <p>{banner.bannerDescription}</p>
                                 <button className="bg-white font-semibold text-sm text-black rounded-full px-4 py-1.5">
@@ -75,7 +75,7 @@ function Page() {
                     width={1520}
                     height={500}
                     alt={`Banner Image`}
-                    className="w-full md:top-[67%] bottom-12 -z-0 absolute"
+                    className="w-full  lg:top-[67%] md:top-[51%] bottom-6 -z-0 absolute"
                 />
             </div>
 

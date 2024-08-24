@@ -37,8 +37,8 @@ function Page() {
             {homepageData ? (
                 <div>
                     <Image src={homepageData.homeJoinBackgroundImage.node.sourceUrl} width={1600} height={500} alt={homepageData.homeJoinTitle}
-                        className='-z-10 w-full md:h-full h-[340px]' />
-                    <div className='absolute md:top-1/4 top-10 space-y-2 md:px-[400px] px-10 text-center text-white' data-aos="fade-up">
+                        className='-z-10 w-full lg:h-full md:h-[300px] h-[340px]' />
+                    <div className='absolute lg:top-1/4 md:top-[20%] top-10 space-y-2 lg:px-[400px] px-10 text-center text-white' data-aos="fade-up">
                         <h1 className=''>{homepageData.homeJoinSubtitle}</h1>
                         <h1 className='text-3xl font-bold '>{homepageData.homeJoinTitle}</h1>
                         <h1 className=''>{homepageData.homeJoinDescription}</h1>
@@ -49,7 +49,7 @@ function Page() {
 
                 </div>
             ) : (
-                <p>Loading...</p>
+                <p></p>
             )}
         </div>
     );

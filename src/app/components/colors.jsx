@@ -59,7 +59,7 @@ function Colors() {
                 <Image src='/yellowline.svg' width={520} height={500} alt="Banner Image" className="h-5 w-60 md:block hidden" />
             </div>
             {/* fetched color details  */}
-            <div className="grid md:grid-cols-6 grid-cols-2 md:gap-5 gap-x-5 w-full" >
+            <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 md:gap-5 gap-x-5 w-full" >
                 {colorCategories.map((color, index) => (
                     <div key={index} className="relative hover:border hover:shadow-md rounded-md group pb-1" data-aos="flip-right">
                         <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">

@@ -29,17 +29,17 @@ function Footer() {
       <img
         src='/blue-brick-wall-background.jpg'
         alt='Footer background'
-        className=' w-full md:h-[520px] h-[850px] object-cover -z-10 absolute top-0 left-0'
+        className=' w-full lg:h-[520px] md:h-[550px] h-[850px] object-cover -z-10 absolute top-0 left-0'
       />
 
       {/* Footer content */}
       <div className='relative z-10 md:h-full'>
         {/* Group Company Section */}
-        <div className='border-b border-gray-400 md:mx-36 py-5'>
+        <div className='border-b border-gray-400 lg:mx-36 md:mx-10 py-5'>
           <h1 className='font-semibold text-3xl text-center my-5 '>Group Company</h1>
           <div className="md:flex justify-between items-center hidden px-10 invert brightness-0 filter">
             {images.map((image, index) => (
-              <div key={index} className="md:w-36 md:h-24">
+              <div key={index} className="lg:w-36 lg:h-24 md:w-32 md:h-20">
                 <Image src={image.src} alt={image.alt} width={image.width} height={image.height} className="w-full h-full object-contain" />
               </div>
             ))}
@@ -65,7 +65,7 @@ function Footer() {
           </div>
         </div>
         {/* Footer Contact and Info */}
-        <div className='mt-10 md:mx-32 mx-5 flex flex-col  md:flex-row space-y-5 md:space-y-0 md:space-x-5'>
+        <div className='mt-10 lg:mx-32 md:mx-10 mx-5 flex flex-col  md:flex-row space-y-5 md:space-y-0 md:space-x-5'>
           <div className='md:basis-1/3'>
             <Image src='/logo.webp' width={150} height={100} alt='Logo' />
             <h1 className='font-semibold mt-4'>Reach Us</h1>
@@ -107,7 +107,7 @@ function Footer() {
         </div>
       </div>
       {/* bottom footer  */}
-      <div className="bg-[#0060af] md:mt-2 mt-5 md:text-sm text-[11px] md:px-32 flex  justify-between  px-5 py-2">
+      <div className="bg-[#0060af] lg:mt-2 md:mt-1 mt-5 md:text-sm text-[11px] md:px-32 flex  justify-between  px-5 py-2">
         <div>Terms & Conditions</div>
         <div>ALL RIGHTS RESERVED</div>
         <div>Privacy Policy</div>
